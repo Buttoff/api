@@ -21,6 +21,79 @@
   },
   {
     "ContainingType": "CalculationApi.Controllers.CalculatorController",
+    "Method": "GetById",
+    "RelativePath": "api/Calculator/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "CalculationApi.Models.Calculation",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CalculationApi.Controllers.CalculatorController",
+    "Method": "Delete",
+    "RelativePath": "api/Calculator/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CalculationApi.Controllers.CalculatorController",
+    "Method": "AddFromUrl",
+    "RelativePath": "api/Calculator/add/{a}/{b}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "a",
+        "Type": "System.Double",
+        "IsRequired": true
+      },
+      {
+        "Name": "b",
+        "Type": "System.Double",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Double",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CalculationApi.Controllers.CalculatorController",
     "Method": "Calculate",
     "RelativePath": "api/Calculator/calculate",
     "HttpMethod": "POST",
@@ -31,6 +104,37 @@
         "Name": "request",
         "Type": "CalculationApi.Models.CalcRequest",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Double",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CalculationApi.Controllers.CalculatorController",
+    "Method": "CalculateQuick",
+    "RelativePath": "api/Calculator/calculate-quick",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "a",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "b",
+        "Type": "System.Double",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [
@@ -63,6 +167,7 @@
         ],
         "StatusCode": 200
       }
-    ]
+    ],
+    "EndpointName": "GetWeatherForecast"
   }
 ]

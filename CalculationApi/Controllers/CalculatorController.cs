@@ -45,4 +45,42 @@ public class CalculatorController : ControllerBase
     {
         return await _context.Calculations.ToListAsync();
     }
+
+
+[HttpGet("{id}")]
+    public async Task<ActionResult<Calculation>> GetById(int id)
+    {
+        var calculation = await _context.Calculations.FindAsync(id);
+        if (calculation == null)
+            return NotFound();
+        return calculation;
+    }
+
+    [HttpGet("add/{a}/{b}")]
+    public ActionResult<double> AddFromUrl(double a, double b)
+    {
+        double result = a + b;
+        return Ok(result);
+    }
+
+    [HttpGet("calculate-quick")]
+    public ActionResult<double> CalculateQuick(double a, double b)
+    {
+        double result = a + b; 
+        return Ok(result);
+    }
+
+    // 6. DELETE: удалить запись по ID (НОВЫЙ МЕТОД)
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var calculation = await _context.Calculations.FindAsync(id);
+        if (calculation == null)
+            return NotFound();
+
+        _context.Calculations.Remove(calculation);
+        await _context.SaveChangesAsync();
+
+        return NoContent(); 
+    }
 }
