@@ -16,11 +16,12 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <!-- Строка 0: Число A -->
         <Label Grid.Row="0" Grid.Column="0" Content="Число A:" Margin="5"/>
-        <TextBox x:Name="TextBoxA" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Padding="3"/>
+        <TextBox x:Name="TextBoxA" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="5" Padding="3"/>
 
         <!-- Строка 1: Число B -->
         <Label Grid.Row="1" Grid.Column="0" Content="Число B:" Margin="5"/>
@@ -30,6 +31,7 @@
         <Button x:Name="CalculateButton" Grid.Row="2" Grid.Column="0" Content="Рассчитать" Margin="5" Padding="10,5" Click="CalculateButton_Click"/>
         <TextBox x:Name="ResultTextBox" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Padding="3" IsReadOnly="True"/>
 
+        <Button x:Name="CreateResourceButton" Grid.Row="2" Grid.Column="2" Content="Создать (REST)" Margin="5" Padding="10,5" Click="CreateResourceButton_Click"/>
         <!-- Строка 3: Кнопка Показать историю -->
         <Button x:Name="HistoryButton" Grid.Row="3" Grid.Column="0" Content="Показать историю" Margin="5" Padding="10,5" Click="HistoryButton_Click"/>
         <ProgressBar x:Name="LoadingProgressBar" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Height="20" IsIndeterminate="True" Visibility="Collapsed"/>
@@ -37,8 +39,9 @@
         <!-- Строка 4: Удаление по ID -->
         <Label Grid.Row="4" Grid.Column="0" Content="ID для удаления:" Margin="5"/>
         <TextBox x:Name="DeleteIdTextBox" Grid.Row="4" Grid.Column="1" Margin="5" Padding="3"/>
-        <Button x:Name="DeleteButton" Grid.Row="4" Grid.Column="2" Content="Удалить" Margin="5" Padding="10,5" Click="DeleteButton_Click"/>
-
+        <Button x:Name="DeleteButton" Grid.Row="4" Grid.Column="3" Content="Удалить" Margin="5" Padding="10,5" Click="DeleteButton_Click" Background="#FFFFE0E0"/>
+        <Button x:Name="UpdateButton" Grid.Row="5" Grid.Column="3" Content="Обновить" Margin="5" Padding="10,5" Click="UpdateButton_Click" Background="#FFE0FFE0"/>
+        
         <!-- Строка 5: Кнопка быстрого вычисления (GET) -->
         <Button x:Name="QuickCalcButton" Grid.Row="5" Grid.Column="0" Content="Быстро (GET)" Margin="5" Padding="10,5" Click="QuickCalcButton_Click"/>
         <TextBox x:Name="QuickResultTextBox" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Padding="3" IsReadOnly="True"/>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8maS8UWiJrI=",
+  "dgSpecHash": "NOgkqNdHgqI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\student\\Desktop\\lb 3\\CalcClient\\CalcClient.csproj",
+  "projectFilePath": "C:\\Users\\student\\Desktop\\lb 5\\CalcClient\\CalcClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\student\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
     "C:\\Users\\student\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",

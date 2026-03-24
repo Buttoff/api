@@ -182,4 +182,75 @@ public partial class MainWindow : Window
             _ => "?"
         };
     }
+    private async void CreateResourceButton_Click(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            if (!double.TryParse(TextBoxA.Text, out double a) ||
+                !double.TryParse(TextBoxB.Text, out double b))
+            {
+                MessageBox.Show("Введите корректные числа!");
+                return;
+            }
+
+            // Создаем DTO для отправки
+            var createDto = new { a, b };
+
+            // Отправляем POST на /api/calculator
+            var response = await _httpClient.PostAsJsonAsync("api/calculator", createDto);
+
+            if (response.IsSuccessStatusCode)
+            {
+                // Читаем созданный ресурс
+                var createdResource = await response.Content.ReadAsStringAsync();
+
+                // Получаем Location заголовок
+                var location = response.Headers.Location?.ToString();
+
+                MessageBox.Show(
+                    $"Ресурс создан!\nURL: {location}\nДанные: {createdResource}",
+                    "Успех");
+
+                // Обновляем историю
+                HistoryButton_Click(sender, e);
+            }
+            else
+            {
+                var error = await response.Content.ReadAsStringAsync();
+                MessageBox.Show($"Ошибка: {response.StatusCode}\n{error}");
+            }
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Ошибка: {ex.Message}");
+        }
+    }
+    private async void UpdateButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (!int.TryParse(DeleteIdTextBox.Text, out int id))
+        {
+            MessageBox.Show("Введите корректный ID");
+            return;
+        }
+
+        if (!double.TryParse(TextBoxA.Text, out double a) ||
+            !double.TryParse(TextBoxB.Text, out double b))
+        {
+            MessageBox.Show("Введите корректные числа!");
+            return;
+        }
+
+        var updateDto = new { id, a, b };
+        var response = await _httpClient.PutAsJsonAsync($"api/calculator/{id}", updateDto);
+
+        if (response.IsSuccessStatusCode)
+        {
+            MessageBox.Show("Ресурс обновлен");
+            HistoryButton_Click(sender, e);
+        }
+        else
+        {
+            MessageBox.Show($"Ошибка: {response.StatusCode}");
+        }
+    }
 }
