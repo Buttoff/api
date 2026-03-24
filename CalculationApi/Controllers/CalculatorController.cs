@@ -254,4 +254,62 @@ public class CalculatorController : ControllerBase
             _ => "Неизвестно"
         };
     }
+    [HttpPost]
+    public async Task<ActionResult<Calculation>> Create(CreateCalculationDto dto)
+    {
+        // 1. Валидация (если атрибуты не сработали)
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        // 2. Вычисление результата согласно варианту
+        double result;
+        try
+        {
+            result = CalculateOperation(dto.A, dto.B);
+        }
+        catch (DivideByZeroException)
+        {
+            return BadRequest(new { error = "Деление на ноль запрещено" });
+        }
+
+        // 3. Создание модели для БД
+        var calculation = new Calculation
+        {
+            A = dto.A,
+            B = dto.B,
+            Result = result,
+            CreatedAt = DateTime.Now
+        };
+
+        // 4. Сохранение в БД
+        _context.Calculations.Add(calculation);
+        await _context.SaveChangesAsync();
+
+        return CreatedAtAction(
+            nameof(GetById),           // Имя метода для получения ресурса
+            new { id = calculation.Id }, // Параметры маршрута
+            calculation                 // Само созданное тело ответа
+        );
+    }
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, UpdateCalculationDto dto)
+    {
+        if (id != dto.Id)
+            return BadRequest(new { error = "ID в маршруте и теле запроса не совпадают" });
+
+        var calculation = await _context.Calculations.FindAsync(id);
+        if (calculation == null)
+            return NotFound();
+
+        // Обновляем поля
+        calculation.A = dto.A;
+        calculation.B = dto.B;
+        calculation.Result = CalculateOperation(dto.A, dto.B);
+        // CreatedAt не обновляем - оставляем оригинальную дату создания
+
+        await _context.SaveChangesAsync();
+        return NoContent();
+    }
 }

@@ -21,6 +21,32 @@
   },
   {
     "ContainingType": "CalculationApi.Controllers.CalculatorController",
+    "Method": "Create",
+    "RelativePath": "api/Calculator",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "CalculationApi.DTO.CreateCalculationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "CalculationApi.Models.Calculation",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "CalculationApi.Controllers.CalculatorController",
     "Method": "GetById",
     "RelativePath": "api/Calculator/{id}",
     "HttpMethod": "GET",
@@ -56,6 +82,27 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CalculationApi.Controllers.CalculatorController",
+    "Method": "Update",
+    "RelativePath": "api/Calculator/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "CalculationApi.DTO.UpdateCalculationDto",
         "IsRequired": true
       }
     ],
