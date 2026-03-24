@@ -1,0 +1,14 @@
+C:\Users\student\source\repos\WebApiLab\ConsoleClient\bin\Debug\net8.0\ConsoleClient.exe
+C:\Users\student\source\repos\WebApiLab\ConsoleClient\bin\Debug\net8.0\ConsoleClient.deps.json
+C:\Users\student\source\repos\WebApiLab\ConsoleClient\bin\Debug\net8.0\ConsoleClient.runtimeconfig.json
+C:\Users\student\source\repos\WebApiLab\ConsoleClient\bin\Debug\net8.0\ConsoleClient.dll
+C:\Users\student\source\repos\WebApiLab\ConsoleClient\bin\Debug\net8.0\ConsoleClient.pdb
+C:\Users\student\source\repos\WebApiLab\ConsoleClient\obj\Debug\net8.0\ConsoleClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\student\source\repos\WebApiLab\ConsoleClient\obj\Debug\net8.0\ConsoleClient.AssemblyInfoInputs.cache
+C:\Users\student\source\repos\WebApiLab\ConsoleClient\obj\Debug\net8.0\ConsoleClient.AssemblyInfo.cs
+C:\Users\student\source\repos\WebApiLab\ConsoleClient\obj\Debug\net8.0\ConsoleClient.csproj.CoreCompileInputs.cache
+C:\Users\student\source\repos\WebApiLab\ConsoleClient\obj\Debug\net8.0\ConsoleClient.dll
+C:\Users\student\source\repos\WebApiLab\ConsoleClient\obj\Debug\net8.0\refint\ConsoleClient.dll
+C:\Users\student\source\repos\WebApiLab\ConsoleClient\obj\Debug\net8.0\ConsoleClient.pdb
+C:\Users\student\source\repos\WebApiLab\ConsoleClient\obj\Debug\net8.0\ConsoleClient.genruntimeconfig.cache
+C:\Users\student\source\repos\WebApiLab\ConsoleClient\obj\Debug\net8.0\ref\ConsoleClient.dll
