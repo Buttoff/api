@@ -134,4 +134,52 @@ public partial class MainWindow : Window
             MessageBox.Show($"Ошибка: {response.StatusCode}");
         }
     }
+    private async void DtoPostButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (!double.TryParse(TextBoxA.Text, out double a) ||
+            !double.TryParse(TextBoxB.Text, out double b))
+        {
+            MessageBox.Show("Введите корректные числа!");
+            return;
+        }
+
+        var request = new { a, b };
+        var response = await _httpClient.PostAsJsonAsync("api/calculator/calculate-dto", request);
+
+        if (response.IsSuccessStatusCode)
+        {
+            var result = await response.Content.ReadAsStringAsync();
+            MessageBox.Show($"DTO ответ: {result}", "Результат");
+        }
+    }
+
+    private async void DtoListButton_Click(object sender, RoutedEventArgs e)
+    {
+        var dtoList = await _httpClient.GetFromJsonAsync<List<CalculationDto>>("api/calculator/list");
+
+        var displayItems = dtoList.Select(d => new
+        {
+            DisplayText = $"{d.A} {GetOperationSymbol(d.Operation)} {d.B} = {d.Result}"
+        }).ToList();
+
+        HistoryListBox.ItemsSource = displayItems;
+    }
+
+    private async void StatsButton_Click(object sender, RoutedEventArgs e)
+    {
+        var stats = await _httpClient.GetFromJsonAsync<dynamic>("api/calculator/stats");
+        MessageBox.Show($"Всего операций: {stats.totalCalculations}\nСредний результат: {stats.averageResult}", "Статистика");
+    }
+
+    private string GetOperationSymbol(string operation)
+    {
+        return operation switch
+        {
+            "Сложение" => "+",
+            "Умножение" => "×",
+            "Деление" => "÷",
+            "Возведение в степень" => "^",
+            _ => "?"
+        };
+    }
 }

@@ -43,7 +43,11 @@
         <Button x:Name="QuickCalcButton" Grid.Row="5" Grid.Column="0" Content="Быстро (GET)" Margin="5" Padding="10,5" Click="QuickCalcButton_Click"/>
         <TextBox x:Name="QuickResultTextBox" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Padding="3" IsReadOnly="True"/>
 
-        <!-- Строка 6: Список истории -->
-        <ListBox x:Name="HistoryListBox" Grid.Row="6" Grid.ColumnSpan="3" Margin="5" DisplayMemberPath="DisplayText"/>
+        <Button x:Name="DtoPostButton" Grid.Row="6" Grid.Column="0" Content="DTO POST" Margin="5,5,5,70" Padding="10,5" Click="DtoPostButton_Click"/>
+        <Button x:Name="DtoListButton" Grid.Row="6" Grid.Column="1" Content="DTO список" Margin="5,5,5,70" Padding="10,5" Click="DtoListButton_Click"/>
+        <Button x:Name="StatsButton" Grid.Row="6" Grid.Column="2" Content="Статистика" Margin="5,5,5,70" Padding="10,5" Click="StatsButton_Click"/>
+
+        <!-- Строка 7: Список истории -->
+        <ListBox x:Name="HistoryListBox" Grid.Row="6" Grid.ColumnSpan="3" Margin="5,70,5,5" DisplayMemberPath="DisplayText"/>
     </Grid>
 </Window>

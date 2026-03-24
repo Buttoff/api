@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\student\\Desktop\\lb 2\\CalcClient\\CalcClient.csproj": {}
+    "C:\\Users\\student\\Desktop\\lb 3\\CalcClient\\CalcClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\student\\Desktop\\lb 2\\CalcClient\\CalcClient.csproj": {
+    "C:\\Users\\student\\Desktop\\lb 3\\CalcClient\\CalcClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\student\\Desktop\\lb 2\\CalcClient\\CalcClient.csproj",
+        "projectUniqueName": "C:\\Users\\student\\Desktop\\lb 3\\CalcClient\\CalcClient.csproj",
         "projectName": "CalcClient",
-        "projectPath": "C:\\Users\\student\\Desktop\\lb 2\\CalcClient\\CalcClient.csproj",
+        "projectPath": "C:\\Users\\student\\Desktop\\lb 3\\CalcClient\\CalcClient.csproj",
         "packagesPath": "C:\\Users\\student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\student\\Desktop\\lb 2\\CalcClient\\obj\\",
+        "outputPath": "C:\\Users\\student\\Desktop\\lb 3\\CalcClient\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
