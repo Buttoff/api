@@ -91,4 +91,47 @@ public partial class MainWindow : Window
             HistoryButton.IsEnabled = true;
         }
     }
+    private async void DeleteButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (!int.TryParse(DeleteIdTextBox.Text, out int id))
+        {
+            MessageBox.Show("Введите корректный ID");
+            return;
+        }
+
+        var response = await _httpClient.DeleteAsync($"api/calculator/{id}");
+        if (response.IsSuccessStatusCode)
+        {
+            MessageBox.Show("Запись удалена");
+            // Обновить историю
+            HistoryButton_Click(sender, e);
+        }
+        else
+        {
+            MessageBox.Show($"Ошибка удаления: {response.StatusCode}");
+        }
+    }
+
+    // Обработчик быстрого вычисления через GET
+    private async void QuickCalcButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (!double.TryParse(TextBoxA.Text, out double a) ||
+            !double.TryParse(TextBoxB.Text, out double b))
+        {
+            MessageBox.Show("Введите корректные числа!");
+            return;
+        }
+
+        // Используем маршрут calculate-quick с query-параметрами
+        var response = await _httpClient.GetAsync($"api/calculator/calculate-quick?a={a}&b={b}");
+        if (response.IsSuccessStatusCode)
+        {
+            var result = await response.Content.ReadAsStringAsync();
+            QuickResultTextBox.Text = result;
+        }
+        else
+        {
+            MessageBox.Show($"Ошибка: {response.StatusCode}");
+        }
+    }
 }

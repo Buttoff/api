@@ -8,30 +8,42 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <!-- Строка 0: Число A -->
         <Label Grid.Row="0" Grid.Column="0" Content="Число A:" Margin="5"/>
-        <TextBox x:Name="TextBoxA" Grid.Row="0" Grid.Column="1" Margin="5" Padding="3"/>
+        <TextBox x:Name="TextBoxA" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Padding="3"/>
 
         <!-- Строка 1: Число B -->
         <Label Grid.Row="1" Grid.Column="0" Content="Число B:" Margin="5"/>
-        <TextBox x:Name="TextBoxB" Grid.Row="1" Grid.Column="1" Margin="5" Padding="3"/>
+        <TextBox x:Name="TextBoxB" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Padding="3"/>
 
         <!-- Строка 2: Кнопка Рассчитать и результат -->
         <Button x:Name="CalculateButton" Grid.Row="2" Grid.Column="0" Content="Рассчитать" Margin="5" Padding="10,5" Click="CalculateButton_Click"/>
-        <TextBox x:Name="ResultTextBox" Grid.Row="2" Grid.Column="1" Margin="5" Padding="3" IsReadOnly="True"/>
+        <TextBox x:Name="ResultTextBox" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Padding="3" IsReadOnly="True"/>
 
         <!-- Строка 3: Кнопка Показать историю -->
         <Button x:Name="HistoryButton" Grid.Row="3" Grid.Column="0" Content="Показать историю" Margin="5" Padding="10,5" Click="HistoryButton_Click"/>
-        <ProgressBar x:Name="LoadingProgressBar" Grid.Row="3" Grid.Column="1" Margin="5" Height="20" IsIndeterminate="True" Visibility="Collapsed"/>
+        <ProgressBar x:Name="LoadingProgressBar" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Height="20" IsIndeterminate="True" Visibility="Collapsed"/>
 
-        <!-- Строка 4: Список истории (ListBox) -->
-        <ListBox x:Name="HistoryListBox" Grid.Row="4" Grid.ColumnSpan="2" Margin="5" DisplayMemberPath="DisplayText"/>
+        <!-- Строка 4: Удаление по ID -->
+        <Label Grid.Row="4" Grid.Column="0" Content="ID для удаления:" Margin="5"/>
+        <TextBox x:Name="DeleteIdTextBox" Grid.Row="4" Grid.Column="1" Margin="5" Padding="3"/>
+        <Button x:Name="DeleteButton" Grid.Row="4" Grid.Column="2" Content="Удалить" Margin="5" Padding="10,5" Click="DeleteButton_Click"/>
+
+        <!-- Строка 5: Кнопка быстрого вычисления (GET) -->
+        <Button x:Name="QuickCalcButton" Grid.Row="5" Grid.Column="0" Content="Быстро (GET)" Margin="5" Padding="10,5" Click="QuickCalcButton_Click"/>
+        <TextBox x:Name="QuickResultTextBox" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" Padding="3" IsReadOnly="True"/>
+
+        <!-- Строка 6: Список истории -->
+        <ListBox x:Name="HistoryListBox" Grid.Row="6" Grid.ColumnSpan="3" Margin="5" DisplayMemberPath="DisplayText"/>
     </Grid>
 </Window>
